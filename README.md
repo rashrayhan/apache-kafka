@@ -19,8 +19,8 @@ Real time springboot application with apache kafka
 
 `kafka-server-start config/server.properties`
 
-## Download Offset Explorer for Kafka UI 
+## Download Kafka Tool for Kafka UI 
 
-[Offset Explorer](https://www.kafkatool.com/download.html)
+[Kafka Tool](https://www.kafkatool.com/download.html)
 
 

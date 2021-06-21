@@ -23,4 +23,8 @@ Real time springboot application with apache kafka
 
 [Kafka Tool](https://www.kafkatool.com/download.html)
 
+## Kafka comands
+
+[Github](https://github.com/dilipsundarraj1/TeachApacheKafka/blob/master/Kafka_Commands.md)
+
 

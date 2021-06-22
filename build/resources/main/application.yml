@@ -1,15 +1,42 @@
 server:
   port: 9000
-
 spring:
+  profiles:
+    active: local
+
+---
+spring:
+  profile: local
   kafka:
+    producer:
+      bootstrap-servers: localhost:9091,localhost:9092,localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap.servers: localhost:9091,localhost:9092,localhost:9093
     consumer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: localhost:9091,localhost:9092,localhost:9093
       group-id: group_id
       auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.LongSerializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      default-topic: library-events
+      partitions: 3
+      replicas: 3
+
+---
+#spring:
+#  profile: dev
+#  kafka:
+#    producer:
+#      bootstrap-servers: {dev-url}:9091
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    consumer:
+#      bootstrap-servers: {dev-url}:9091
+#      group-id: group_id
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

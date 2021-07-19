@@ -72,7 +72,6 @@ public class LibraryEventService {
         handleCallback(key, sendEvent);
     }
 
-
     private void handleCallback(Integer key, ListenableFuture<SendResult<Integer, String>> listenableFuture) {
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             @SneakyThrows
